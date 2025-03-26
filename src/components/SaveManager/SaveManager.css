@@ -1,17 +1,39 @@
-.save-manager {
+/* ==================== */
+/* VARIÁVEIS DE CORES */
+/* ==================== */
+:root {
+    --bg-dark: #1a1a2e;
+    --bg-darker: #0f3460;
+    --primary: #4CAF50;
+    --primary-hover: #45a049;
+    --accent: #f8bb22;
+    --danger: #e74c3c;
+    --danger-hover: #c0392b;
+    --info: #3498db;
+    --info-hover: #2980b9;
+    --text-light: #e6e6e6;
+    --text-muted: #a8a8a8;
+    --disabled: #cccccc;
+    --overlay: rgba(0, 0, 0, 0.7);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+  }
+  
+  /* ==================== */
+  /* MODAL PRINCIPAL */
+  /* ==================== */
+  .save-manager {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--overlay);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: var(--transition);
   }
   
   .save-manager.visible {
@@ -20,7 +42,7 @@
   }
   
   .save-manager-content {
-    background-color: #1a1a2e;
+    background-color: var(--bg-dark);
     padding: 2rem;
     border-radius: 8px;
     width: 90%;
@@ -28,42 +50,57 @@
     max-height: 80vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow);
   }
   
+  /* ==================== */
+  /* CABEÇALHO DO MODAL */
+  /* ==================== */
   .close-button {
     position: absolute;
     top: 1rem;
     right: 1rem;
     background: none;
     border: none;
-    color: #e6e6e6;
+    color: var(--text-light);
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    transition: var(--transition);
   }
   
+  .close-button:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+  }
+  
+  /* ==================== */
+  /* ABAS DE NAVEGAÇÃO */
+  /* ==================== */
   .tabs {
     display: flex;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid #4CAF50;
+    border-bottom: 1px solid var(--primary);
   }
   
   .tab {
     padding: 0.75rem 1.5rem;
     background: none;
     border: none;
-    color: #a8a8a8;
+    color: var(--text-muted);
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: var(--transition);
   }
   
   .tab.active {
-    color: #f8bb22;
-    border-bottom: 3px solid #f8bb22;
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
   }
   
+  /* ==================== */
+  /* LISTA DE SAVES */
+  /* ==================== */
   .saves-list {
     list-style: none;
     padding: 0;
@@ -71,91 +108,158 @@
   }
   
   .save-item {
-    background-color: #0f3460;
+    background-color: var(--bg-darker);
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: var(--transition);
   }
   
   .save-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-hover);
   }
   
   .save-info h3 {
     margin: 0 0 0.5rem 0;
-    color: #f8bb22;
+    color: var(--accent);
   }
   
+  .save-info p {
+    margin: 0.25rem 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  /* ==================== */
+  /* BOTÕES DE AÇÃO */
+  /* ==================== */
   .save-actions {
     display: flex;
     gap: 0.5rem;
   }
   
-  .load-button, .delete-button {
+  .action-button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    min-width: 80px;
   }
   
   .load-button {
-    background-color: #4CAF50;
+    background-color: var(--primary);
     color: white;
   }
   
   .load-button:hover {
-    background-color: #45a049;
+    background-color: var(--primary-hover);
   }
   
   .delete-button {
-    background-color: #e74c3c;
+    background-color: var(--danger);
     color: white;
   }
   
   .delete-button:hover {
-    background-color: #c0392b;
+    background-color: var(--danger-hover);
   }
   
+  /* ==================== */
+  /* FORMULÁRIO DE SAVE */
+  /* ==================== */
   .save-input {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #4CAF50;
+    border: 1px solid var(--primary);
     border-radius: 4px;
-    background-color: #0f3460;
-    color: #e6e6e6;
+    background-color: var(--bg-darker);
+    color: var(--text-light);
+    transition: var(--transition);
+  }
+  
+  .save-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(248, 187, 34, 0.2);
   }
   
   .confirm-save-button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #3498db;
+    background-color: var(--info);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: var(--transition);
   }
   
   .confirm-save-button:hover {
-    background-color: #2980b9;
+    background-color: var(--info-hover);
   }
   
   .confirm-save-button:disabled {
-    background-color: #cccccc;
+    background-color: var(--disabled);
     cursor: not-allowed;
   }
   
+  /* ==================== */
+  /* ESTADOS ESPECIAIS */
+  /* ==================== */
   .no-saves {
     text-align: center;
-    color: #a8a8a8;
+    color: var(--text-muted);
     font-style: italic;
+    padding: 2rem 0;
+  }
+  
+  /* ==================== */
+  /* ANIMAÇÕES */
+  /* ==================== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ==================== */
+  /* RESPONSIVIDADE */
+  /* ==================== */
+  @media (max-width: 768px) {
+    .save-manager-content {
+      padding: 1.5rem;
+    }
+    
+    .save-item {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    
+    .save-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tabs {
+      flex-direction: column;
+    }
+    
+    .tab {
+      text-align: left;
+      padding: 0.5rem 1rem;
+    }
+    
+    .action-button {
+      width: 100%;
+    }
   }
