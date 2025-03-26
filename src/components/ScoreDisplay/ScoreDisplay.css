@@ -1,0 +1,17 @@
+.score-display {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0f3460;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .score, .lives {
+    font-size: 1.1rem;
+  }
+  
+  .score span, .lives span {
+    font-weight: bold;
+    color: #f8bb22;
+  }

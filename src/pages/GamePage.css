@@ -1,0 +1,190 @@
+/* game-page.css */
+:root {
+    /* Cores */
+    --primary-color: #1a1a2e;
+    --secondary-color: #4CAF50;
+    --accent-color: #f8bb22;
+    --text-color: #e6e6e6;
+    --text-secondary: #a8a8a8;
+    --border-color: rgba(255, 255, 255, 0.1);
+    
+    /* Espaçamentos */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Bordas */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    
+    /* Efeitos */
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .game-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .back-button {
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .back-button:hover {
+    background: rgba(76, 175, 80, 0.1);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .back-button:active {
+    transform: translateY(0);
+  }
+  
+  .game-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .game-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .game-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .action-button {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+    min-width: 120px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .action-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: var(--transition);
+  }
+  
+  .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .action-button:hover::after {
+    transform: translateX(0);
+  }
+  
+  .save-button {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .save-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .reset-button {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .reset-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .save-message {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    color: var(--secondary-color);
+    font-weight: 500;
+    animation: fadeInOut 2s ease-in-out;
+  }
+  
+  /* Animações */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.95); }
+    20% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.95); }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .game-page {
+      padding: var(--spacing-md);
+    }
+    
+    .game-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .action-button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .game-header {
+      flex-direction: column;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+  }

@@ -1,0 +1,101 @@
+.game-screen {
+  background-color: var(--card-bg, #0f3460);
+  padding: var(--spacing-lg, 1.5rem);
+  border-radius: var(--border-radius-md, 8px);
+  margin: var(--spacing-lg, 1.5rem) 0;
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.3));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  transition: var(--transition, all 0.3s ease);
+}
+
+.game-screen:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg, 0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+.narrative-text {
+  font-size: var(--font-size-md, 1.1rem);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg, 1.5rem);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-md, 1rem);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius-sm, 4px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 1rem);
+  margin-top: var(--spacing-lg, 1.5rem);
+}
+
+.choice-button {
+  width: 100%;
+  background-color: var(--button-bg, #1a1a2e) !important;
+  color: var(--text-color, #e6e6e6);
+  border: none;
+  padding: var(--spacing-md, 1rem);
+  border-radius: var(--border-radius-sm, 4px);
+  cursor: pointer;
+  transition: var(--transition, all 0.3s ease);
+  font-size: var(--font-size-base, 1rem);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.choice-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--secondary-color, #4CAF50);
+  transition: var(--transition, all 0.3s ease);
+}
+
+.choice-button:hover {
+  background-color: var(--button-hover, #1a56a7) !important;
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.choice-button:hover::before {
+  width: 8px;
+}
+
+.choice-button:active {
+  transform: translateX(5px) scale(0.98);
+}
+
+/* Efeitos de foco para acessibilidade */
+.choice-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--secondary-color, #4CAF50);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .game-screen {
+    padding: var(--spacing-md, 1rem);
+    margin: var(--spacing-md, 1rem) 0;
+  }
+  
+  .narrative-text {
+    min-height: 80px;
+    font-size: var(--font-size-sm, 0.9rem);
+    padding: var(--spacing-sm, 0.5rem);
+  }
+  
+  .choice-button {
+    padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  }
+}
