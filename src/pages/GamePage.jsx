@@ -2,6 +2,7 @@ import { useGameLogic } from '../hooks/useGameLogic';
 import GameScreen from '../components/GameScreen/GameScreen';
 import ScoreDisplay from '../components/ScoreDisplay/ScoreDisplay';
 import Inventory from '../components/Inventory/Inventory';
+import SaveManager from '../components/SaveManager/SaveManager';
 import './GamePage.css';
 
 export default function GamePage({ backToHome }) {
@@ -13,9 +14,15 @@ export default function GamePage({ backToHome }) {
     inventory,
     makeChoice,
     useItem,
-    saveGame,
     resetGame,
-    showSavedMessage
+    saves,
+    saveGame,
+    loadGame,
+    deleteSave,
+    showSaveMenu,
+    setShowSaveMenu,
+    saveName, 
+    setSaveName
   } = useGameLogic();
 
   return (
@@ -43,17 +50,28 @@ export default function GamePage({ backToHome }) {
 
       <footer className="game-footer">
         <div className="game-actions">
-          <button className="action-button save-button" onClick={saveGame}>
-            Salvar Jogo
+          <button 
+            className="action-button save-button" 
+            onClick={() => setShowSaveMenu(true)}
+          >
+            Gerenciar Saves
           </button>
           <button className="action-button reset-button" onClick={resetGame}>
             Novo Jogo
           </button>
         </div>
-        {showSavedMessage && (
-          <div className="save-message">Progresso salvo!</div>
-        )}
       </footer>
+
+      <SaveManager
+        saves={saves}
+        saveGame={saveGame}
+        loadGame={loadGame}
+        deleteSave={deleteSave}
+        showSaveMenu={showSaveMenu}
+        setShowSaveMenu={setShowSaveMenu}
+        saveName={saveName}
+        setSaveName={setSaveName}
+      />
     </div>
   );
 }

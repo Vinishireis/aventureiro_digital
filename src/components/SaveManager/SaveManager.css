@@ -1,0 +1,161 @@
+.save-manager {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .save-manager.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .save-manager-content {
+    background-color: #1a1a2e;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #e6e6e6;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #4CAF50;
+  }
+  
+  .tab {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: #a8a8a8;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .tab.active {
+    color: #f8bb22;
+    border-bottom: 3px solid #f8bb22;
+  }
+  
+  .saves-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .save-item {
+    background-color: #0f3460;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .save-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .save-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #f8bb22;
+  }
+  
+  .save-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .load-button, .delete-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .load-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .load-button:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-button {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .save-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    background-color: #0f3460;
+    color: #e6e6e6;
+  }
+  
+  .confirm-save-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .confirm-save-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .confirm-save-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .no-saves {
+    text-align: center;
+    color: #a8a8a8;
+    font-style: italic;
+  }
