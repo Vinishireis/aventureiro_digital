@@ -155,8 +155,6 @@ Este projeto está sob **Creative Commons Attribution-ShareAlike 4.0**
 ---
 
 ## **📮 Contato**  
-**Autor:** [Seu Nome]  
-**Twitter:** [@seu_twitter]  
-**Site:** [https://seusite.com]  
+**Autores:** Vinícius Nishimura Reis & Felipe Yamaschita    
 
 *"Toda escolha tem consequências..."* 🌑
